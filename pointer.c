@@ -1,6 +1,7 @@
 #include <stdio.h>
 
 void swap(int a, int b);
+void swapp(int * a, int * b);
 
 int main(int argc, char* argv[])
 {
@@ -30,6 +31,8 @@ int main(int argc, char* argv[])
 	printf("After swap:\n");
 	swap(a, b);
 	printf("a = %d, b = %d\n", a, b);
+	swapp(&a, &b);
+	printf("a = %d, b = %d\n", a, b);
 	return 0;
 }
 
@@ -40,6 +43,12 @@ void swap(int a, int b)
 	a = temp;
 }
 
+void swapp(int * a, int * b)
+{
+	int temp = *b;
+	*b = *a;
+	*a = temp;
+}
 
 
 
