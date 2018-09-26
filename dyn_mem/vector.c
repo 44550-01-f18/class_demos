@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+void double_alloc(int ** arr, int * size);
+
 int main(int argc, char* argv[])
 {
 	int arr_size = 15;
@@ -13,9 +15,8 @@ int main(int argc, char* argv[])
 	for (int i=0; i<arr_size; i++)
 		printf("%d ", my_array[i]);
 	printf("\n");
-
+/*
 	int * temp = my_array;
-
 	my_array = malloc(arr_size * 2 * sizeof(int));
 
 	for (int i=0; i<arr_size; i++)
@@ -24,6 +25,18 @@ int main(int argc, char* argv[])
 	arr_size *= 2;
 	// my_al.add(3)
 	// my_list.append(3)
-
+	free(temp);*/
+	double_alloc(&my_array, &arr_size);
+	free(my_array);
 	return 0;
+}
+
+void double_alloc(int ** arr, int * size)
+{
+	int * temp = *arr;
+	*arr = malloc((*size) * 2 * sizeof(int));
+	for (int i=0; i<*size; i++)
+		(*arr)[i] = temp[i];
+	free(temp);
+	(*size) *= 2;
 }
