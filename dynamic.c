@@ -10,7 +10,7 @@ int main(int argc, char* argv[])
 		printf("%s\n", argv[i]); */
 	int * arry;
 	int ** arry_ptr;
-	printf("0x%X\n", arry);
+	//printf("0x%X\n", arry);
 	arry = (int *)malloc(50 * sizeof(int));
 	arry[0] = 10;
 	arry[1] = 20;
@@ -24,11 +24,11 @@ int main(int argc, char* argv[])
 	arry_ptr = & arry;
 	printf("arry_ptr: 0x%X\n", arry_ptr);
 	printf("*arry_ptr: 0x%X\n", *arry_ptr);
-	cleanup(&arry);
+	//cleanup(&arry);
 	printf("0x%X\n", arry);
-	cleanup(&arry);
-	//free(arry);
-	//free(arry);
+	//cleanup(&arry);
+	free(arry);
+	free(arry);
 	return 0;
 }
 

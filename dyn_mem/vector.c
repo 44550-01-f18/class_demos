@@ -35,8 +35,8 @@ void double_alloc(int ** arr, int * size)
 {
 	int * temp = *arr;
 	*arr = malloc((*size) * 2 * sizeof(int));
+	free(temp);
 	for (int i=0; i<*size; i++)
 		(*arr)[i] = temp[i];
-	free(temp);
 	(*size) *= 2;
 }
