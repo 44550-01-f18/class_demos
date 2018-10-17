@@ -26,7 +26,7 @@ int main()
 void *thread1(void *args)
 {
   pthread_mutex_lock(&mutex1);
-  for (int i = 0; i < 10000; i++)
+  for (int i = 0; i < 100000; i++)
     ;
   pthread_mutex_lock(&mutex2);
   printf("FIRE ZE MISSILES!\n");
@@ -36,7 +36,7 @@ void *thread1(void *args)
 void *thread2(void *args)
 {
   pthread_mutex_lock(&mutex2);
-  for (int i = 0; i < 10000; i++)
+  for (int i = 0; i < 100000; i++)
     ;
   pthread_mutex_lock(&mutex1);
   printf("FIRE ZE OZZER MISSILES!\n");
